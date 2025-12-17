@@ -8,4 +8,13 @@ enum MessageType: string
     case UPDATED = 'Berhasil memperbarui';
     case DELETED = 'Berhasil menghapus';
     case ERROR = 'Terjadi kesalahan. Silakan coba lagi';
+
+    public function message(string $entity = '', ?string $error = null): string
+    {
+        if ($this === MessageType::ERROR && $error !== null) {
+            return "{$this->value}: {$error}";
+        }
+
+        return "{$this->value} {$entity}";
+    }
 }
