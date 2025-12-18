@@ -20,15 +20,20 @@ class Income extends Model
         'year',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     protected function casts(): array
     {
         return [
             'month' => MonthEnum::class,
         ];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function source()
+    {
+        return $this->belongsTo(Budget::class, 'source_id', 'id');
     }
 }

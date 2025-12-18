@@ -24,4 +24,14 @@ class Liability extends Model
             'type' => LiabilityType::class,
         ];
     }
+
+    public function netWorth()
+    {
+        return $this->belongsTo(NetWorth::class);
+    }
+
+    public function netWorthLiabilities()
+    {
+        return $this->hasMany(NetWorthLiability::class);
+    }
 }

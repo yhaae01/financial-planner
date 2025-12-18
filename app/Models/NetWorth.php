@@ -24,4 +24,14 @@ class NetWorth extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function assets()
+    {
+        return $this->hasMany(Asset::class);
+    }
+
+    public function liabilities()
+    {
+        return $this->hasMany(Liability::class);
+    }
 }

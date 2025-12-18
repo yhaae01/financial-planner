@@ -31,4 +31,19 @@ class Expense extends Model
             'month' => MonthEnum::class,
         ];
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
+
+    public function typeDetail()
+    {
+        return $this->belongsTo(Budget::class, 'type_detail_id', 'id');
+    }
 }

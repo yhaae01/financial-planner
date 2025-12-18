@@ -15,4 +15,9 @@ class NetWorthAsset extends Model
         'transaction_date',
         'nominal',
     ];
+
+    public function asset()
+    {
+        return $this->belongsTo(Asset::class);
+    }
 }
